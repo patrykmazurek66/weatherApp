@@ -40,7 +40,6 @@ function displayResults(weather){
     hilow.innerText = `${Math.round(weather.main.temp_min)}°C / ${Math.round(weather.main.temp_max)}°C`;
 
    changeBg(weather.weather[0].id);
-   // console.log(weather.weather[0].id)
 }
 
 function dateBuilder(d){
