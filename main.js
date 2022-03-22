@@ -65,3 +65,5 @@ function changeBg(weatherCode){
     
     
 }
+
+document.body.style.backgroundImage = "url('bgs/bg.jpg')";
