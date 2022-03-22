@@ -10,6 +10,7 @@ searchbox.addEventListener('keypress',setQuery);
 function setQuery(e){
     if(e.keyCode == 13){
         getResults(searchbox.value);
+        searchbox.value ='';
 
     }
 }
@@ -37,6 +38,9 @@ function displayResults(weather){
 
     let hilow = document.querySelector('.hi-low');
     hilow.innerText = `${Math.round(weather.main.temp_min)}°C / ${Math.round(weather.main.temp_max)}°C`;
+
+   changeBg(weather.weather[0].id);
+   // console.log(weather.weather[0].id)
 }
 
 function dateBuilder(d){
@@ -50,4 +54,15 @@ function dateBuilder(d){
     let year = d.getFullYear();
 
     return `${day} ${date} ${month} ${year}`
+}
+function changeBg(weatherCode){
+    if(weatherCode >= 200 && weatherCode <= 232) document.body.style.backgroundImage = "url('bgs/thunderstorm.jpg')";
+    if(weatherCode >= 300 && weatherCode <= 321) document.body.style.backgroundImage = "url('bgs/drizzle.jpg')";
+    if(weatherCode >= 500 && weatherCode <= 531) document.body.style.backgroundImage = "url('bgs/rain.jpg')";
+    if(weatherCode >= 600 && weatherCode <= 622) document.body.style.backgroundImage = "url('bgs/snow.jpg')";
+    if(weatherCode >= 700 && weatherCode <= 799) document.body.style.backgroundImage = "url('bgs/mist.jpg')";
+    if(weatherCode == 800) document.body.style.backgroundImage = "url('bgs/clear.jpg')";
+    if(weatherCode > 800 && weatherCode <= 899) document.body.style.backgroundImage = "url('bgs/clouds.jpg')";
+    
+    
 }
